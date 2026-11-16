@@ -1,0 +1,54 @@
+article {
+  padding: 0.25rem;
+
+  font-size: 1.25rem;
+}
+
+article > p.link a {
+  color: #668888;
+
+  text-decoration: underline;
+  text-decoration-color: transparent;
+
+  font-weight: semibold;
+
+  transition: all 0.3s ease-in-out;
+}
+
+article > p.link span.date {
+  font-style: italic;
+  font-size: 0.75rem;
+
+  color: #888888;
+
+  margin: 1rem auto;
+}
+
+article > p.link a:hover {
+  text-decoration-color: #668888;
+}
+
+article > div.tags {
+  font-size: 0.67rem;
+
+  display: flex;
+  gap: 0.5rem;
+}
+
+article > div.tags a {
+  padding: 0 0.25rem;
+
+  color: black;
+  text-decoration: none;
+
+  background-color: #E0E0FF;
+
+  border: 1px solid #CCCCCC;
+  border-radius: 0.25rem;
+
+  transition: all 0.3s ease-in-out;
+}
+
+article > div.tags a:hover {
+  background-color: #D0D0FF;
+}

@@ -1,0 +1,48 @@
+{{ $link := partial "resolve-link.html" (dict "page" .Page "url" (.Get "url")) }}
+{{ $url := $link.url }}
+{{ $title := .Get "title" }}
+{{ $description := .Get "description" }}
+{{ $website := (urls.Parse $url).Hostname }}
+{{ $image := "" }}
+
+{{ with $link.page }}
+  {{ $title = .Title }}
+  {{ $description = .Description }}
+  {{ $website = (urls.Parse .Permalink).Hostname }}
+  {{ with .Params.images }}
+    {{ $image = index . 0 | absURL }}
+  {{ end }}
+{{ else }}
+  {{ $metadata := partialCached "remote-open-graph.html" $url $url }}
+  {{ $title = or $title (index $metadata "og:title") }}
+  {{ $description = or $description (index $metadata "og:description") }}
+  {{ $image = index $metadata "og:image" | default "" }}
+  {{ if $image }}
+    {{ $parsedImage := urls.Parse $image }}
+    {{ if not $parsedImage.IsAbs }}
+      {{ $base := urls.Parse $url }}
+      {{ if strings.HasPrefix $image "//" }}
+        {{ $image = printf "%s:%s" $base.Scheme $image }}
+      {{ else }}
+        {{ $imagePath := $image }}
+        {{ if not (strings.HasPrefix $image "/") }}
+          {{ $imagePath = path.Join (path.Dir $base.Path) $image }}
+        {{ end }}
+        {{ $image = printf "%s://%s/%s" $base.Scheme $base.Host (strings.TrimPrefix "/" $imagePath) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<a class="cta-link" href='{{ $url }}'>
+  <div class="cta-link-content">
+    <p class="cta-link-title">{{ $title }}</p>
+    <p class="cta-link-description">{{ $description }}</p>
+    <p class="cta-link-website">{{ $website }}</p>
+  </div>
+  {{ if $image }}
+    <div class="cta-link-thumbnail">
+      <img src="{{ $image }}" alt="{{ $title }}" loading="lazy">
+    </div>
+  {{ end }}
+</a>

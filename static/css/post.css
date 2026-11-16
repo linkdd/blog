@@ -1,0 +1,302 @@
+
+.content {
+  max-width: 80ch;
+  margin: 0 auto;
+
+  color: #333333;
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+/* Headings */
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin: 2rem 0 1rem;
+
+  color: #222222;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.content h1 { font-size: 2rem; }
+.content h2 { font-size: 1.75rem; }
+.content h3 { font-size: 1.5rem; }
+.content h4 { font-size: 1.25rem; }
+.content h5,
+.content h6 { font-size: 1rem; }
+
+/* Paragraphs */
+
+.content p {
+  margin: 0 0 1rem;
+}
+
+/* Links */
+
+.content a {
+  color: #668888;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.content a:hover {
+  color: #446666;
+}
+
+/* Lists */
+
+.content ul,
+.content ol {
+  margin: 0 0 1rem;
+  padding-left: 2rem;
+}
+
+.content ul {
+  list-style: disc;
+}
+
+.content ol {
+  list-style: decimal;
+}
+
+.content li {
+  margin: 0.25rem 0;
+}
+
+.content li > ul,
+.content li > ol {
+  margin: 0.5rem 0;
+}
+
+/* Quotes */
+
+.content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.5rem 1.5rem;
+
+  border-left: 4px solid #668888;
+  background-color: #F0F5F5;
+  color: #555555;
+}
+
+.content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Inline code */
+
+.content :not(pre) > code {
+  padding: 0.15rem 0.35rem;
+
+  border-radius: 0.25rem;
+  background-color: #EEEEEE;
+
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+/* Code blocks */
+
+.content pre {
+  margin: 1.5rem 0;
+  padding: 1rem;
+
+  border-radius: 0.5rem;
+  background-color: #252525;
+  color: #F0F0F0;
+
+  overflow-x: auto;
+  line-height: 1.5;
+  tab-size: 2;
+}
+
+.content pre code {
+  padding: 0;
+  background: none;
+
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Images */
+
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+
+  border-radius: 0.25rem;
+}
+
+/* Tables */
+
+.content table {
+  width: 100%;
+  margin: 1.5rem 0;
+
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.content th,
+.content td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #DDDDDD;
+  text-align: left;
+}
+
+.content th {
+  background-color: #F0F5F5;
+  font-weight: 600;
+}
+
+.content tr:nth-child(even) {
+  background-color: #FAF5F5;
+}
+
+/* Horizontal rules */
+
+.content hr {
+  width: 80%;
+  height: 1px;
+  margin: 2rem auto;
+
+  border: 0;
+  background-color: #CCCCCC;
+}
+
+/* Miscellaneous */
+
+.content strong {
+  font-weight: 700;
+}
+
+.content em {
+  font-style: italic;
+}
+
+.content del {
+  text-decoration: line-through;
+}
+
+.content > :first-child {
+  margin-top: 0;
+}
+
+.content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Call To Action Links */
+
+.content a.cta-link {
+  display: flex;
+  align-items: stretch;
+  min-height: 10rem;
+  margin: 1.5rem 0;
+  padding: 0;
+
+  color: #242424;
+  text-decoration: none;
+
+  border: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+}
+
+.content a.cta-link:hover {
+  border-color: #AAAAAA;
+}
+
+.content a.cta-link:focus-visible {
+  outline: 2px solid #668888;
+  outline-offset: 3px;
+}
+
+.content .cta-link-content {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.375rem;
+}
+
+.content .cta-link-content p {
+  margin: 0;
+}
+
+.content .cta-link-title,
+.content .cta-link-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.content .cta-link-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.content .cta-link-description {
+  color: #6B6B6B;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.content .cta-link-website {
+  color: #6B6B6B;
+  font-size: 0.75rem;
+  line-height: 1.4;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content .cta-link-thumbnail {
+  flex: 0 0 10rem;
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid #DDDDDD;
+}
+
+.content .cta-link-thumbnail img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  border-radius: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 480px) {
+  .content a.cta-link {
+    min-height: 8rem;
+  }
+
+  .content .cta-link-content {
+    padding: 0.75rem;
+  }
+
+  .content .cta-link-title {
+    font-size: 0.9375rem;
+  }
+
+  .content .cta-link-thumbnail {
+    flex-basis: 6rem;
+  }
+}

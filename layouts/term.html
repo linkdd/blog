@@ -1,0 +1,27 @@
+{{ define "css" }}
+  <link rel="stylesheet" href="{{ "css/home.css" | relURL }}">
+{{ end }}
+
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  {{ $paginator := .Paginate .Pages.ByDate.Reverse 10 }}
+
+  <div>
+    {{ range $paginator.Pages }}
+      <article>
+        <p class="link">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </p>
+        <div class="tags">
+          {{ range .Params.tags }}
+            <a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+{{ end }}

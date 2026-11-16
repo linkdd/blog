@@ -1,0 +1,19 @@
+{{- $url := . -}}
+{{- $metadata := dict -}}
+{{- with try (resources.GetRemote $url) -}}
+  {{- with .Err -}}
+    {{- warnf "Unable to load link preview for %s: %s" $url . -}}
+  {{- else with .Value -}}
+    {{- range findRE `(?is)<meta\b(?:[^>"']|"[^"]*"|'[^']*')*>` .Content -}}
+      {{- $attributes := dict -}}
+      {{- range findRESubmatch `(?is)\b(property|content)\s*=\s*(?:"([^"]*)"|'([^']*)')` . -}}
+        {{- $attributes = merge $attributes (dict (lower (index . 1)) (htmlUnescape (or (index . 2) (index . 3)))) -}}
+      {{- end -}}
+      {{- $property := lower (index $attributes "property" | default "") -}}
+      {{- if and (in (slice "og:title" "og:description" "og:image") $property) (not (isset $metadata $property)) -}}
+        {{- $metadata = merge $metadata (dict $property (index $attributes "content" | default "")) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $metadata -}}

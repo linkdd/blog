@@ -1,0 +1,3 @@
+{{- $link := partial "resolve-link.html" (dict "page" .Page "url" .Destination) -}}
+<a href="{{ $link.url | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text }}</a>
+{{- /* Preserve spacing around inline links. */ -}}

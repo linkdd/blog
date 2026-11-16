@@ -1,0 +1,7 @@
+baseURL = 'https://linkdd.github.io/blog/'
+locale = 'en-us'
+title = '~linkdd'
+capitalizeListTitles = false
+
+[taxonomies]
+  tag = "tags"

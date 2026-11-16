@@ -1,0 +1,14 @@
+{{ define "css" }}
+  <link rel="stylesheet" href="{{ "css/tags.css" | relURL }}">
+{{ end }}
+
+{{ define "main" }}
+  {{ range .Data.Terms.Alphabetical }}
+    <a
+      href="{{ .Page.RelPermalink }}"
+      style="font-size: clamp(1rem, calc(1rem + {{ .Count }} * 0.05rem), 2.25rem);"
+    >
+      {{ .Page.LinkTitle }}
+    </a>
+  {{ end }}
+{{ end }}

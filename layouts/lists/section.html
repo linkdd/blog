@@ -1,0 +1,33 @@
+{{ define "title" }}
+  {{ .Site.Title }} | {{ .Title }}
+{{ end }}
+
+{{ define "css" }}
+  <link rel="stylesheet" href="{{ "css/post.css" | relURL }}">
+{{ end }}
+
+{{ define "main" }}
+  <div class="content">
+    <h1>{{ .Title }}</h1>
+
+    {{ .Content }}
+
+    {{ with .Params.articles }}
+      <ol>
+        {{ range . }}
+          {{ with site.GetPage . }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ else }}
+            {{ errorf "Unknown article %q in reading list %q" . $.Path }}
+          {{ end }}
+        {{ end }}
+      </ol>
+    {{ else }}
+      <ul>
+        {{ range .Sections.ByTitle }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+{{ end }}
