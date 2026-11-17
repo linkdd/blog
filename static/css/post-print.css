@@ -1,0 +1,22 @@
+@media print {
+  header {
+    display: none;
+  }
+
+  .content pre {
+    border: 1px solid #888888;
+
+    overflow: visible;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* Keep line numbers beside their code when long lines wrap. */
+  .content .highlight pre code > span > span:not(:last-child) {
+    flex-shrink: 0;
+  }
+
+  .content .highlight pre code > span > span:last-child {
+    min-width: 0;
+  }
+}

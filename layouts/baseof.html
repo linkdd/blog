@@ -28,18 +28,20 @@
     {{ block "js" . }}{{ end }}
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href='{{ "" | relURL }}'>~linkdd</a></li>
-        <li><a href='{{ "lists/" | relURL }}'>lists</a></li>
-        <li><a href='{{ "tags/" | relURL }}'>tags</a></li>
-        {{ with site.Home.OutputFormats.Get "rss" }}
-          <li><a href="{{ .RelPermalink }}">rss</a></li>
-        {{ end }}
-      </ul>
-    </nav>
+    <header>
+      <nav>
+        <ul>
+          <li><a href='{{ "" | relURL }}'>~linkdd</a></li>
+          <li><a href='{{ "lists/" | relURL }}'>lists</a></li>
+          <li><a href='{{ "tags/" | relURL }}'>tags</a></li>
+          {{ with site.Home.OutputFormats.Get "rss" }}
+            <li><a href="{{ .RelPermalink }}">rss</a></li>
+          {{ end }}
+        </ul>
+      </nav>
 
-    <hr>
+      <hr>
+    </header>
 
     <main>
       {{ block "main" . }}{{ end }}

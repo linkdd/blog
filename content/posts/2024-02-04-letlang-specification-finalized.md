@@ -285,11 +285,3 @@ If you’re curious about the internals of Letlang, feel free to take a look at 
 >}}
 
 Feel free to clap for this article to give me more visibility 🙂
-
-If you want to read my other articles about Letlang, it’s here → [Letlang Reading List](/reading-lists/letlang)
-
-{{< cta-link
-  url="https://david-delassus.medium.com/subscribe"
-  title="Get an email whenever David Delassus publishes."
-  description="Get an email whenever David Delassus publishes. By signing up, you will create a Medium account if you don't already…"
->}}

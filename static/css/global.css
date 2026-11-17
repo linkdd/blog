@@ -10,12 +10,12 @@ body {
   padding: 1rem;
 }
 
-body > nav {
+body > header > nav {
   margin-top: 0.25rem;
   height: 3rem;
 }
 
-body > nav > ul {
+body > header > nav > ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -27,12 +27,12 @@ body > nav > ul {
   gap: 1rem;
 }
 
-body > nav > ul > li {
+body > header > nav > ul > li {
   margin: 0;
   padding: 0;
 }
 
-body > nav > ul > li > a {
+body > header > nav > ul > li > a {
   color: #668888;
 
   text-decoration: underline;
@@ -44,7 +44,7 @@ body > nav > ul > li > a {
   transition: all 0.3s ease-in-out;
 }
 
-body > nav > ul > li > a:hover {
+body > header > nav > ul > li > a:hover {
   text-decoration-color: #668888;
 
   font-size: 1.75rem;

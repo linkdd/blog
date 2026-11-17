@@ -5,3 +5,6 @@ capitalizeListTitles = false
 
 [taxonomies]
   tag = "tags"
+
+[markup.highlight]
+  lineNos = 'inline'
